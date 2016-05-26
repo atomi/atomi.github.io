@@ -20,7 +20,7 @@
 
 
 <ul class="sections">
-  Sections &raquo;
+  <li>Sections &raquo;</li>
   {{ range $section, $pages := .Site.Sections }}
       <li><a href="/{{ $section | urlize }}">{{ title $section }}</a></li>
   {{ end }}
