@@ -5,15 +5,15 @@ div.crumbs {font-size: 1.2em}
 div.crumbs img {margin: 0 10px}
 div.crumbs a:link, div.crumbs a:visited {color: #0000EE}
 
-.post {margin-top: 35px}
+.post {margin-top: 15px}
 .date {font-weight: bold}
 
-ul.sections { list-style: none; padding: 10px 0 0 0; }
+ul.sections { list-style: none; padding: 10px 0 0 0; margin: 0}
 ul.sections li { display: inline; }
 ul.sections  li + li::before { content: " | "; }
 
 .prevnext {
-  margin: 10px 0
+  margin: 0 0 5px 0; padding: 0;
 }
 
 .footer {
