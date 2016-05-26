@@ -1,5 +1,24 @@
 {{ partial "header.html" . }}
 <div class="post">
+
+  <div class="prevnext">
+    {{ if .Next }}
+    {{ with .Next }}
+        <a href="{{ .RelPermalink }}" title="{{.Title}}"> Prev</a>
+    {{ end }}
+      {{ else }}
+      <i class="arrow circle left outline icon black"></i> Prev
+    {{ end }}
+    |
+    {{ if .Prev}}
+    {{ with .Prev }}
+            <a href="{{ .RelPermalink }}" title="{{.Title}}">Next</a>
+    {{ end }}
+    {{ else }}
+    Next <i class="arrow circle right outline icon black"></i>
+    {{ end }}
+  </div>
+
    <div class="date">
      {{ .Date.Format "Mon. January 2, 2006" }}
    </div>

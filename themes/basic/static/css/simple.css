@@ -12,6 +12,10 @@ ul.sections { list-style: none; padding: 10px 0 0 0; }
 ul.sections li { display: inline; }
 ul.sections  li + li::before { content: " | "; }
 
+.prevnext {
+  margin: 10px 0
+}
+
 .footer {
   margin: 0 20px;
   font-size: .8em;
