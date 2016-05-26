@@ -3,7 +3,11 @@
 <head>
     <meta charset="utf-8">
     <base href="{{ .Site.BaseURL }}">
-    <title> {{ .Title }} </title>
+    {{ if $.IsHome }}
+      <title>My Notes and Articles - atomi</title>
+    {{ else }}
+      <title>"{{ .Title }}" by atomi</title>
+    {{ end }}
     <link rel="canonical" href="{{ .Permalink }}">
     <link rel="stylesheet" href="/css/simple.css">
 </head>
