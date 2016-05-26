@@ -1,0 +1,15 @@
+<div class="posts">
+  {{ range .Paginator.Pages }}
+      <div>
+        <h2>
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
+          {{ if $.IsHome }}
+            in [<a href="/{{ .Section }}">{{ .Type }}</a>]
+          {{ end }}
+        </h2>
+          <span class="date">{{ .Date.Format "Mon. January 2, 2006" }}</span> -
+          {{ .Summary }}
+          {{ if .Truncated }}[<a href="{{ .RelPermalink }}">continue...</a>]{{ end }}
+      </div>
+  {{ end }}
+</div>

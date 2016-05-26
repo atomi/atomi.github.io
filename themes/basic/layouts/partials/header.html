@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="{{ .Site.BaseURL }}">
+    <title> {{ .Title }} </title>
+    <link rel="canonical" href="{{ .Permalink }}">
+    <link rel="stylesheet" href="/css/simple.css">
+</head>
+
+<div class="wrapper">
+
+{{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
+{{ $.Scratch.Add "path" .Site.BaseURL }}
+
+<div class="crumbs">
+  <a href="/"><img src="https://s.gravatar.com/avatar/b93548159967b65db2b1a3ed2e10b279?s=30" alt="atomi" /></a>
+  <a href="/">atomi</a>/{{ range $index, $element := split $url "/" }}{{ $.Scratch.Add "path" $element }}{{ if ne $element "" }}<a href='{{ $.Scratch.Get "path" }}'>{{ . }}</a>/{{ $.Scratch.Add "path" "/" }}{{ end }}{{ end }}
+</div>
+
+
+<ul class="sections">
+  Sections &raquo;
+  {{ range $section, $pages := .Site.Sections }}
+      <li><a href="/{{ $section | urlize }}">{{ title $section }}</a></li>
+  {{ end }}
+</ul>
