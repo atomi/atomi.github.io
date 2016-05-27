@@ -1,15 +1,7 @@
-<div class="posts">
-  {{ range .Paginator.Pages }}
-      <div>
-        <h2>
-          <a href="{{ .Permalink }}">{{ .Title }}</a>
-          {{ if $.IsHome }}
-            in [<a href="/{{ .Section }}">{{ .Type }}</a>]
-          {{ end }}
-        </h2>
-          <span class="date">{{ .Date.Format "Mon. January 2, 2006" }}</span> -
-          {{ .Summary }}
-          {{ if .Truncated }}[<a href="{{ .RelPermalink }}">continue...</a>]{{ end }}
-      </div>
+<div class="postlist">
+  <ul>
+  {{ range sort $.Data.Pages "Date" "desc" }}
+      <li>{{ .Date.Format "2006/01" }} <a href="{{ .Permalink}}"> {{ .LinkTitle }}</a>{{ if $.IsHome }} in [<a href="/{{ .Section }}">{{ .Section }}</a>]{{ end }}</li>
   {{ end }}
+  </ul>
 </div>
