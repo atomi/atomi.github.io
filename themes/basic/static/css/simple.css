@@ -23,3 +23,11 @@ ul.sections  li + li::before { content: " | "; }
 .postlist {margin: 15px 0 0 0;padding: 0;}
 .postlist ul {list-style:none;margin:0}
 .postlist ul li {margin: 4px 0;}
+
+code.has-jax {
+	font: inherit;
+	font-size: 100%;
+	background: inherit;
+	border: inherit;
+	color: #515151;
+}
