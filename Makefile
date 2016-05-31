@@ -3,7 +3,7 @@ baseDir:=public
 commit:=$(shell git describe --abbrev=7 --always --tags)
 
 dev:  init
-	hugo server
+	hugo --bind=192.168.1.105 --baseUrl=192.168.1.105 server
 deploy: init
 	git clone $(remoteURL) $(baseDir)
 	hugo
