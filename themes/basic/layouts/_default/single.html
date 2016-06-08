@@ -1,5 +1,4 @@
 {{ partial "header.html" . }}
-<div class="post">
     <div class="prevnext">
       {{ if .Next }}
       {{ with .Next }}
@@ -21,6 +20,7 @@
      <div class="date">
        {{ .Date.Format "Mon. January 2, 2006" }}
      </div>
+<div class="post">
      {{ .Content }}
 </div>
 {{ partial "footer.html" . }}

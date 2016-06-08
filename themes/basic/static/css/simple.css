@@ -5,16 +5,29 @@ div.crumbs {font-size: 1.2em}
 div.crumbs img {margin: 0 10px}
 div.crumbs a:link, div.crumbs a:visited {color: #0000EE}
 
-.post {margin-top: 15px}
-.date {font-weight: bold}
+div.date {
+  margin-right: 20px;
+  float: right;
+  font-size: .925em
+}
+.prevnext {
+  float: left;
+  margin: 5px 0; padding: 0;
+}
 
-ul.sections { list-style: none; padding: 10px 0 0 0; margin: 0}
+div.post {clear:both;padding-top: 5px;}
+div.post::first-letter {
+	font-size: 2em;
+}
+
+blockquote {font-style: italic}
+blockquote cite::before {
+  content: "- ";
+}
+
+ul.sections { list-style: none; padding: 10px 0 0 0; margin: 10px}
 ul.sections li { display: inline; }
 ul.sections  li + li::before { content: " | "; }
-
-.prevnext {
-  margin: 0 0 5px 0; padding: 0;
-}
 
 .footer {
   margin: 0 20px;
