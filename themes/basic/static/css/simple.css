@@ -27,6 +27,7 @@ blockquote cite::before {
 
 ul.sections { list-style: none; padding: 10px 0 0 0; margin: 10px}
 ul.sections li { display: inline; }
+ul.sections li + li::before { content: "» "; }
 ul.sections li + li + li::before { content: " | "; }
 
 .footer {
