@@ -11,10 +11,10 @@ I’ll preface my points by saying that I am an adamant proponent of Codes of Co
 
 But also, Codes of Conduct may be designed to make a community more inviting for a specific group. A policy written, for example, to ban all use of swear words may be appropriate for communities intending to include under age members. And generally speaking, the use of swear words are not conducive to productive discussions. But sometimes they are. If we’re talking about interesting programming languages for example, and you bring up Brainfuck, a strict adherence to such policy would leave you censored.
 
-Another similar but more grievous example is a real name policy. Real name policies have been debated many times before but there are very legitimate reasons for using pseudonyms many of which have been posted to the [Geek Feminism Wikia].
+Another similar but more grievous example is a real name policy. Real name policies have been debated many times before but there are very legitimate reasons for using pseudonyms.
 
 > The groups of people who use pseudonyms, or want to use pseudonyms, are not a small minority  (some of the classes of people who can benefit from pseudonyms constitute up to 50% of the total population, and many of the others are classes of people that almost everyone knows).
-<cite>Geek Feminism WIkia</cite>
+<cite>[Geek Feminism Wikia]</cite>
 
 A policy like this can be incredibly exclusive and not easy to vet. Even if someone uses a pseudonym that appears to be legitimate, a moderator can still use this policy as an excuse to remove them from the community. A community that excludes people who do not use their real names will be missing out on a lot of interesting, smart and possibly enlightening discussion. And not really a community I want to be part of.
 
