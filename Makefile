@@ -14,3 +14,5 @@ deploy: init
 	rm -rf public
 init:
 	go get -v github.com/spf13/hugo
+update:
+	go get -u github.com/spf13/hugo
