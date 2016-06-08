@@ -2,6 +2,7 @@
  * Based on dabblet (http://dabblet.com)
  * @author Lea Verou
  */
+code,
 code[class*="language-"],
 pre[class*="language-"] {
 	color: black;
