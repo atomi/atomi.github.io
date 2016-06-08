@@ -9,7 +9,7 @@ deploy: init
 	hugo
 	cd $(baseDir); \
 	git add *; \
-	git commit -am "Pushing commit $(commit)"; \
+	git commit -am "$(commit)"; \
 	git push
 	rm -rf public
 init:
