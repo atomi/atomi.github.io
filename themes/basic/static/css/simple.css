@@ -26,7 +26,7 @@ section.post .date { float: right; }
 section.post .prevnext { float: left; }
 
 section.post .postcontent { clear:both; text-align: justify; text-justify: inter-word; }
-section.post .postcontent p:first-child::first-letter { font-size: 2em; }
+body :not(blockquote) > p:first-child::first-letter { font-size: 2em; }
 section.post .postcontent blockquote cite::before { content: "- "; }
 
 code.has-jax {
