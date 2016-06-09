@@ -3,9 +3,9 @@ div.wrapper {
 	max-width: 980px;
 	padding: 0 10px;
 	/* sticky footer */
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
 }
 section { padding-top: 10px; }
 section.post, section.postlist { flex: 1; }
