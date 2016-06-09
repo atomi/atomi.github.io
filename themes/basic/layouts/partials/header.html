@@ -6,7 +6,7 @@
     {{ if $.IsHome }}
       <title>My Notes and Articles - atomi</title>
     {{ else }}
-      <title>"{{ .Title }}" by atomi</title>
+      <title>"{{ .Title }}" - atomi</title>
     {{ end }}
     <link rel="canonical" href="{{ .Permalink }}">
     <link rel="stylesheet" href="/css/simple.css">
@@ -18,15 +18,16 @@
 {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
 {{ $.Scratch.Add "path" .Site.BaseURL }}
 
-<div class="crumbs">
+<section class="crumbs">
   <a href="/"><img src="https://s.gravatar.com/avatar/b93548159967b65db2b1a3ed2e10b279?s=30" alt="atomi" /></a>
   <a href="/">atomi</a>/{{ range $index, $element := split $url "/" }}{{ $.Scratch.Add "path" $element }}{{ if ne $element "" }}<a href='{{ $.Scratch.Get "path" }}'>{{ . }}</a>/{{ $.Scratch.Add "path" "/" }}{{ end }}{{ end }}
-</div>
+</section>
 
-
-<ul class="sections">
-  <li>Sections</li>
-  {{ range $section, $pages := .Site.Sections }}
-      <li><a href="/{{ $section }}">{{ title $section }}</a></li>
-  {{ end }}
-</ul>
+<section class="categories">
+  <h4>Categories</h4>
+  <ul>
+    {{ range $section, $pages := .Site.Sections }}
+        <li><a href="/{{ $section }}">{{ title $section }}</a></li>
+    {{ end }}
+  </ul>
+</section>

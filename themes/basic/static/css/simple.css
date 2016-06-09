@@ -1,43 +1,24 @@
-body {font-size:1.2em}
-.wrapper{margin: 22px 10px;}
+section { padding-top: 10px }
 
-div.crumbs {font-size: 1.2em}
-div.crumbs img {margin: 0 10px}
-div.crumbs a:link, div.crumbs a:visited {color: #0000EE}
+div.wrapper { margin: 0 auto; max-width: 980px; padding: 0 10px; }
 
-div.date {
-  margin-right: 20px;
-  float: right;
-  font-size: .925em
-}
-.prevnext {
-  float: left;
-  margin: 5px 0; padding: 0;
-}
+section.categories h4 { display: inline; font-weight: inherit; }
+section.categories h4::after { content: " »"; }
+section.categories ul { display: inline; list-style: none; padding: 0; }
+section.categories li { display: inline; }
+section.categories li + li::before { content: " | "; }
 
-div.post {clear:both;padding-top: 5px;}
-div.post::first-letter {
-	font-size: 2em;
-}
+section.postlist h4 { font-weight: inherit; margin: 0; }
+section.postlist h4::after { content: ":"; }
+section.postlist ul { list-style: none; padding: 0; }
+section.postlist ul li { padding: 2px; }
 
-blockquote {font-style: italic}
-blockquote cite::before {
-  content: "- ";
-}
+section.post .date { float: right; }
+section.post .prevnext { float: left; }
 
-ul.sections { list-style: none; padding: 10px 0 0 0; margin: 10px}
-ul.sections li { display: inline; }
-ul.sections li + li::before { content: "» "; }
-ul.sections li + li + li::before { content: " | "; }
-
-.footer {
-  margin: 0 20px;
-  font-size: .8em;
-}
-
-.postlist {margin: 15px 0 0 0;padding: 0;}
-.postlist ul {list-style:none;margin:0}
-.postlist ul li {margin: 4px 0;}
+section.post .postcontent { clear:both; }
+section.post .postcontent::first-letter { font-size: 2em; }
+section.post .postcontent blockquote cite::before { content: "- "; }
 
 code.has-jax {
 	font: inherit;
