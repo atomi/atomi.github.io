@@ -3,7 +3,7 @@ title: "Changing Cursor Color in gnome-terminal and tmux"
 date: "2016-01-30"
 ---
 
-If you need to change the cursor color of your terminal you can use the following command:
+If you need to change the cursor color of your gnome-terminal you can use the following command:
 
 ```bash
 echo -ne "\e]12;orange\a"
