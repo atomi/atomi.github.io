@@ -18,6 +18,6 @@ Here is the configuration command I came up with for my `.tmux.conf` file (where
 set-option -ag terminal-overrides ',xterm*:Cr=\E]12;gray\007'
 ```
 
-In this case I’ve set color reset to gray which seems to work without issue.
+In this case, I’ve set color reset to gray which seems to work without issue.
 
 Reference:  https://github.com/tmux/tmux/issues/266
