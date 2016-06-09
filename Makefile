@@ -1,6 +1,6 @@
 remoteURL:=git@github.com:atomi/atomi.github.io.git
 baseDir:=public
-commit:=$(shell git describe --abbrev=7 --always --tags)
+commit:=$(shell git describe --abbrev=10 --always --tags)
 
 dev:  init
 	hugo --bind=192.168.1.105 --baseUrl=192.168.1.105 server
