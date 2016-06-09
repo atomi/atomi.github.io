@@ -2,7 +2,7 @@
   <h4>Posts</h4>
   <ul>
   {{ range sort $.Data.Pages "Date" "desc" }}
-      <li>{{ .Date.Format "2006/01" }} <a href="{{ .Permalink}}"> {{ .LinkTitle }}</a>{{ if $.IsHome }} in [<a href="/{{ .Section | urlize  }}">{{ title .Section }}</a>]{{ end }}</li>
+      <li>{{ .Date.Format "2006/01" }} <a href="{{ .Permalink}}"> {{ .LinkTitle }}</a>{{ if $.IsHome }} | <a href="/{{ .Section | urlize  }}">{{ title .Section }}</a> {{ end }}</li>
   {{ end }}
   </ul>
 </section>
