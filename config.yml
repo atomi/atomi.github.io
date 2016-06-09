@@ -1,4 +1,4 @@
-baseurl: https://atomi.github.io/
+baseurl: /
 theme: basic
 DisableRSS: true
 DisableSitemap: true
