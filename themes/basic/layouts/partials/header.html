@@ -15,12 +15,12 @@
 
 <div class="wrapper">
 
-{{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
-{{ $.Scratch.Add "path" .Site.BaseURL }}
+{{- $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
+{{- $.Scratch.Add "path" .Site.BaseURL }}
 
 <section class="crumbs">
   <a href="/"><img src="https://s.gravatar.com/avatar/b93548159967b65db2b1a3ed2e10b279?s=30" alt="atomi" /></a>
-  <a href="/">atomi</a>/{{ range $index, $element := split $url "/" }}{{ $.Scratch.Add "path" $element }}{{ if ne $element "" }}<a href='{{ $.Scratch.Get "path" }}'>{{ . }}</a>/{{ $.Scratch.Add "path" "/" }}{{ end }}{{ end }}
+  <a href="/">atomi</a>/{{- range $index, $element := split $url "/" }}{{- $.Scratch.Add "path" $element }}{{- if ne $element "" }}<a href='{{- $.Scratch.Get "path" }}'>{{- . }}</a>/{{- $.Scratch.Add "path" "/" }}{{- end }}{{- end }}
 </section>
 
 <section class="categories">
