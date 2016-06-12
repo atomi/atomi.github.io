@@ -1,31 +1,31 @@
 <section class="recipes">
-{{ range sort .Site.Data.panadero.recipes "name" "asc" }}
-  <h3>{{ .name }}:</h3>
+{{- range sort .Site.Data.panadero.recipes "name" "asc" -}}
+  <h3>{{- .name -}}:</h3>
   <ul>
-  {{ range .ingredients }}
+  {{- range .ingredients -}}
     <li>
-    {{ $iid := .id }}
-    {{ if eq .recipe true }}
-      {{ range $.Site.Data.panadero.recipes }}
-        {{ if eq $iid .id }}
-          {{ .name }}
-        {{ end }}
-      {{ end }}
-    {{ else }}
-      {{ range $.Site.Data.panadero.ingredients }}
-        {{ if eq $iid .id }}
-          {{ .name }}
-        {{ end }}
-      {{ end }}
-    {{ end }}
+    {{- $iid := .id -}}
+    {{- if eq .recipe true -}}
+      {{- range $.Site.Data.panadero.recipes -}}
+        {{- if eq $iid .id -}}
+          {{- .name -}}
+        {{- end -}}
+      {{- end -}}
+    {{- else -}}
+      {{- range $.Site.Data.panadero.ingredients -}}
+        {{- if eq $iid .id -}}
+          {{- .name -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
     <span class="percent">
-      {{ mul .percent 100 | printf "%2.2f" }}%
+      {{- mul .percent 100 | printf "%2.2f" -}}%
     </span>
   </li>
-  {{ end }}
+  {{- end -}}
   </ul>
-{{ range .notes }}
-  <p>{{ . | markdownify }}</p>
-{{ end }}
-{{ end }}
+{{- range .notes -}}
+  <p>{{- . | markdownify -}}</p>
+{{- end -}}
+{{- end -}}
 </section>
