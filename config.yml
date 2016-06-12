@@ -4,3 +4,5 @@ DisableRSS: true
 DisableSitemap: true
 disable404: true
 canonifyurls: false
+permalinks:
+        fixed: :title/
