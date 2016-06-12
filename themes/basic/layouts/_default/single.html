@@ -4,7 +4,11 @@
 <div class="prevnext">
   {{ if .Next }}
   {{ with .Next }}
+    {{ if ne .Section "fixed" }}
       <a href="{{ .RelPermalink }}" title="{{.Title}}"> Prev</a>
+    {{ else }}
+      Prev
+    {{ end }}
   {{ end }}
     {{ else }}
     Prev
@@ -12,7 +16,11 @@
   |
   {{ if .Prev}}
   {{ with .Prev }}
-          <a href="{{ .RelPermalink }}" title="{{.Title}}">Next</a>
+    {{ if ne .Section "fixed" }}
+      <a href="{{ .RelPermalink }}" title="{{.Title}}">Next</a>
+    {{ else }}
+      Next
+    {{ end }}
   {{ end }}
   {{ else }}
   Next
