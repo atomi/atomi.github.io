@@ -2,13 +2,13 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <base href="{{ .Site.BaseURL }}">
-    {{ if $.IsHome }}
-      <title>My Notes and Articles - atomi</title>
-    {{ else }}
-      <title>"{{ .Title }}" - atomi</title>
-    {{ end }}
-    <link rel="canonical" href="{{ .Permalink }}">
+    <base href="{{- .Site.BaseURL }}">
+    {{- if $.IsHome }}
+    <title>My Notes and Articles - atomi</title>
+    {{- else }}
+    <title>"{{- .Title }}" - atomi</title>
+    {{- end }}
+    <link rel="canonical" href="{{- .Permalink }}">
     <link rel="stylesheet" href="/css/simple.css">
     <link rel="stylesheet" href="/css/prism.css">
 </head>
