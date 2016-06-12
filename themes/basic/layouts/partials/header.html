@@ -27,7 +27,9 @@
   <h4>Categories</h4>
   <ul>
     {{ range $section, $pages := .Site.Sections }}
+        {{ if ne $section "fixed" }}
         <li><a href="/{{ $section }}">{{ title $section }}</a></li>
+        {{ end }}
     {{ end }}
   </ul>
 </section>

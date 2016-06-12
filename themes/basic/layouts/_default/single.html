@@ -1,5 +1,6 @@
 {{ partial "header.html" . }}
 <section class="post">
+{{ if ne .Section "fixed" }}
 <div class="prevnext">
   {{ if .Next }}
   {{ with .Next }}
@@ -17,10 +18,10 @@
   Next
   {{ end }}
 </div>
-
  <div class="date">
    {{ .Date.Format "Mon. January 2, 2006" }}
  </div>
+{{ end }}
 <div class="postcontent">
    {{ .Content }}
 </div>
