@@ -1,5 +1,5 @@
 ---
-title: "Bread"
+title: "Some Bread Recipes"
 ---
 
  A lot these recipes are adapted from [Peter Reinhart]'s recipes.  His bread recipes are unrivaled.   
