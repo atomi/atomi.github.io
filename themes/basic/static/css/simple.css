@@ -29,6 +29,10 @@ section.post .postcontent { clear:both; text-align: justify; text-justify: inter
 section.post .postcontent > p:first-child::first-letter { font-size: 2em; font-weight: lighter}
 section.post .postcontent blockquote cite::before { content: "- "; }
 
+section.recipes ul{ list-style: none; width: 280px; margin-bottom: 20px; }
+section.recipes ul li {border-bottom: dotted 1px #515151;}
+section.recipes ul li span.percent { float: right; }
+
 code.has-jax {
 	font: inherit;
 	font-size: 100%;
