@@ -16,6 +16,7 @@ ul, h4 { padding: 0; margin: 0; font-weight: inherit; }
 section.menu h4 { display: inline; }
 section.menu h4::after { content: " »"; }
 section.menu ul { display: inline; list-style: none; }
+section.menu ul + ul::before { content: "::"; }
 section.menu li { display: inline; }
 section.menu li + li::before { content: " | "; }
 

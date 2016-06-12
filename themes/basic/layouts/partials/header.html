@@ -30,10 +30,12 @@
       <li><a href="/{{- $section }}">{{- title $section }}</a></li>
       {{- end }}
     {{- end }}
-      {{- range .Site.Pages }}
-        {{- if eq .Section "fixed" }}
-        <li><a href="{{- .Permalink}}"> {{- .LinkTitle }}</a></li>
-        {{- end }}
+    </ul>
+    <ul>
+    {{- range .Site.Pages }}
+      {{- if eq .Section "fixed" }}
+      <li><a href="{{- .Permalink}}"> {{- .LinkTitle }}</a></li>
       {{- end }}
+    {{- end }}
     </ul>
 </section>
