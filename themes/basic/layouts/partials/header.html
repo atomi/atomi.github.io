@@ -24,21 +24,16 @@
 </section>
 
 <section class="menu">
-  <h4>Categories</h4>
-  <ul>
+    <ul>
     {{- range $section, $pages := .Site.Sections }}
       {{- if ne $section "fixed" }}
       <li><a href="/{{- $section }}">{{- title $section }}</a></li>
       {{- end }}
     {{- end }}
-  </ul>
-    <br />
-    <h4>About</h4>
-    <ul>
-    {{- range .Site.Pages }}
-      {{- if eq .Section "fixed" }}
-      <li><a href="{{- .Permalink}}"> {{- .LinkTitle }}</a></li>
+      {{- range .Site.Pages }}
+        {{- if eq .Section "fixed" }}
+        <li><a href="{{- .Permalink}}"> {{- .LinkTitle }}</a></li>
+        {{- end }}
       {{- end }}
-    {{- end }}
     </ul>
 </section>
