@@ -1,6 +1,6 @@
 <section class="recipes">
 {{- range sort .Site.Data.panadero.recipes "name" "asc" -}}
-  <h3>{{- .name -}}:</h3>
+  <h2>{{- .name -}}:</h2>
   <ul>
   {{- range .ingredients -}}
     <li>
@@ -24,6 +24,9 @@
   </li>
   {{- end -}}
   </ul>
+
+<!-- {{ if ge (len .notes) 1 }}{{ end }} -->
+
 {{- range .notes -}}
   <p>{{- . | markdownify -}}</p>
 {{- end -}}
