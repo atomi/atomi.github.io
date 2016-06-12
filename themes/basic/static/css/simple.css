@@ -13,11 +13,11 @@ section.footer {height: 90px;}
 
 ul, h4 { padding: 0; margin: 0; font-weight: inherit; }
 
-section.categories h4 { display: inline; }
-section.categories h4::after { content: " »"; }
-section.categories ul { display: inline; list-style: none;}
-section.categories li { display: inline; }
-section.categories li + li::before { content: " | "; }
+section.menu h4 { display: inline; }
+section.menu h4::after { content: " »"; }
+section.menu ul { display: inline; list-style: none; }
+section.menu li { display: inline; }
+section.menu li + li::before { content: " | "; }
 
 section.postlist h4::after { content: ":"; }
 section.postlist ul { list-style: none; }

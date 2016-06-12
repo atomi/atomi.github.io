@@ -23,13 +23,22 @@
   <a href="/">atomi</a>/{{- range $index, $element := split $url "/" }}{{- $.Scratch.Add "path" $element }}{{- if ne $element "" }}<a href='{{- $.Scratch.Get "path" }}'>{{- . }}</a>/{{- $.Scratch.Add "path" "/" }}{{- end }}{{- end }}
 </section>
 
-<section class="categories">
+<section class="menu">
   <h4>Categories</h4>
   <ul>
-    {{ range $section, $pages := .Site.Sections }}
-        {{ if ne $section "fixed" }}
-        <li><a href="/{{ $section }}">{{ title $section }}</a></li>
-        {{ end }}
-    {{ end }}
+    {{- range $section, $pages := .Site.Sections }}
+      {{- if ne $section "fixed" }}
+      <li><a href="/{{- $section }}">{{- title $section }}</a></li>
+      {{- end }}
+    {{- end }}
   </ul>
+    <br />
+    <h4>About Me:</h4>
+    <ul>
+    {{- range .Site.Pages }}
+      {{- if eq .Section "fixed" }}
+      <li><a href="{{- .Permalink}}"> {{- .LinkTitle }}</a></li>
+      {{- end }}
+    {{- end }}
+    </ul>
 </section>
