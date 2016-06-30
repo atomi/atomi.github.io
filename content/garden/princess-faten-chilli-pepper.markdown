@@ -6,7 +6,7 @@ date: '2016-05-26'
 This is likely related to the ornamental 'Flourescent Purple' (Capsicum annuum)
 
 The flowers are a bright violet and the leaves are dark green with blotches of black.  
-The fruit is about ½" to 1" and a very deep purple color nearly black.  
+The fruit is about ¼ to ½" in length and a very deep purple color nearly black.  
 There is some minor damage from baby grasshoppers from earlier this growing season.  
 
 
