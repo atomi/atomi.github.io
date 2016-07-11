@@ -9,7 +9,7 @@ div.wrapper {
 }
 section { padding-top: 10px; }
 section.post, section.postlist { flex: 1; }
-section.footer {height: 106px;}
+section.footer {height: 160px;}
 
 ul, h4 { padding: 0; margin: 0; font-weight: inherit; }
 
