@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head lang="en">
     <meta charset="utf-8">
     <base href="{{- .Site.BaseURL }}">
     {{- if $.IsHome }}
@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/css/prism.css">
 </head>
 
-<body class="wrapper">
+<body>
 
 {{- $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
 {{- $.Scratch.Add "path" .Site.BaseURL }}
