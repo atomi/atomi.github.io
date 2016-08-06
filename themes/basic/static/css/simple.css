@@ -1,4 +1,4 @@
-div.wrapper {
+body {
 	margin: 0 auto;
 	max-width: 980px;
 	padding: 0 10px;
@@ -7,30 +7,30 @@ div.wrapper {
 	min-height: 100vh;
 	flex-direction: column;
 }
-section { padding-top: 10px; }
-section.post, section.postlist { flex: 1; }
-section.footer {height: 160px;}
+div { padding-top: 10px; }
+div.post, div.postlist { flex: 1; }
+div.footer {height: 160px;}
 
 ul, h4 { padding: 0; margin: 0; font-weight: inherit; }
 
-section.menu ul { display: inline; list-style: none; }
-section.menu ul + ul::before { content: " ∉"; }
-section.menu li { display: inline; }
-section.menu li + li::before { content: " | "; }
+div.menu ul { display: inline; list-style: none; }
+div.menu ul + ul::before { content: " ∉"; }
+div.menu li { display: inline; }
+div.menu li + li::before { content: " | "; }
 
-section.postlist h4::after { content: ":"; }
-section.postlist ul { list-style: none; }
+div.postlist h4::after { content: ":"; }
+div.postlist ul { list-style: none; }
 
-section.post .date { float: right; }
-section.post .prevnext { float: left; }
+div.post .date { float: right; }
+div.post .prevnext { float: left; }
 
-section.post .postcontent { clear:both; text-align: justify; text-justify: inter-word; }
-section.post .postcontent > p:first-child::first-letter { font-size: 2em; font-weight: lighter}
-section.post .postcontent blockquote cite::before { content: "- "; }
+div.post .postcontent { clear:both; text-align: justify; text-justify: inter-word; }
+div.post .postcontent > p:first-child::first-letter { font-size: 2em; font-weight: lighter}
+div.post .postcontent blockquote cite::before { content: "- "; }
 
-section.recipes ul{ list-style: none; width: 280px; margin-bottom: 20px; }
-section.recipes ul li {border-bottom: dotted 1px #515151;}
-section.recipes ul li span.percent { float: right; }
+div.recipes ul{ list-style: none; width: 280px; margin-bottom: 20px; }
+div.recipes ul li {border-bottom: dotted 1px #515151;}
+div.recipes ul li span.percent { float: right; }
 
 code.has-jax {
 	font: inherit;
