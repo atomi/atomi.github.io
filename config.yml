@@ -2,6 +2,7 @@ baseurl: https://atomi.github.io/
 theme: basic
 DisableRSS: true
 DisableSitemap: true
+DisableHugoGeneratorInject: true
 disable404: true
 canonifyurls: false
 permalinks:
