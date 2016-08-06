@@ -2,6 +2,7 @@ body {
 	margin: 0 auto;
 	max-width: 980px;
 	padding: 0 10px;
+	overflow-y:scroll;
 	/* sticky footer */
 	display: flex;
 	min-height: 100vh;
