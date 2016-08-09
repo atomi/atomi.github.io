@@ -14,7 +14,7 @@
 </head>
 
 <body>
-
+<div class="wrapper">
 {{- $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
 {{- $.Scratch.Add "path" .Site.BaseURL }}
 

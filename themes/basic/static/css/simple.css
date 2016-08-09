@@ -1,17 +1,25 @@
 body {
 	margin: 0 auto;
-	max-width: 980px;
+	max-width: 960px;
 	overflow-y:scroll;
+
+}
+
+div.wrapper {
+	margin: 0 20px;
 	/* sticky footer */
 	display: flex;
 	min-height: 100vh;
 	flex-direction: column;
 }
-div { margin: 10px 10px 0 30px; }
-div.footer { border-top: 1px solid black; font-size: .9em}
-div.footer span.hilight {
-	font-weight: bold;
-}
+
+div.menu,
+div.crumbs,
+div.postlist,
+div.post,
+div.footer {margin-top: 16px;}
+
+div.footer { border-top: 1px solid black}
 
 div.post, div.postlist { flex: 1; }
 
