@@ -1,4 +1,4 @@
-<section class="recipes">
+<div class="recipes">
 {{- range sort .Site.Data.panadero.recipes "name" "asc" -}}
   <h2>{{- .name -}}:</h2>
   <ul>
@@ -31,4 +31,4 @@
   <p>{{- . | markdownify -}}</p>
 {{- end -}}
 {{- end -}}
-</section>
+</div>

@@ -1,5 +1,5 @@
 {{ partial "header.html" . }}
-<section class="post">
+<div class="post">
 {{ if ne .Section "fixed" }}
 <div class="prevnext">
   {{ with .Next }}
@@ -29,5 +29,5 @@
 <div class="postcontent">
    {{ .Content }}
 </div>
-</section>
+</div>
 {{ partial "footer.html" . }}

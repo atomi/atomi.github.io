@@ -7,8 +7,12 @@ body {
 	min-height: 100vh;
 	flex-direction: column;
 }
-div { padding-top: 10px; }
-div.footer { margin-bottom: 20px; }
+div { margin: 10px 10px 0 30px; }
+div.footer { border-top: 1px solid black; font-size: .9em}
+div.footer span.hilight {
+	font-weight: bold;
+}
+
 div.post, div.postlist { flex: 1; }
 
 ul, h4 { padding: 0; margin: 0; font-weight: inherit; }
@@ -28,7 +32,7 @@ div.post .postcontent { clear:both; text-align: justify; text-justify: inter-wor
 div.post .postcontent > p:first-child::first-letter { font-size: 2em; font-weight: lighter }
 div.post .postcontent blockquote cite::before { content: "- "; }
 
-div.recipes ul{ list-style: none; width: 280px; margin-bottom: 20px; }
+div.recipes ul{ list-style-type: none; width: 360px; margin-bottom: 20px; }
 div.recipes ul li {border-bottom: dotted 1px #515151; }
 div.recipes ul li span.percent { float: right; }
 
