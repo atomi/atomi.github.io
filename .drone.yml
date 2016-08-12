@@ -1,4 +1,6 @@
 build:
   image: atomi/hugo
   commands:
+    - git config --global user.name "atomi"
+    - git config --global user.email "atomi@inbox.com"
     - make deploy
