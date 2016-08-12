@@ -9,7 +9,8 @@ dev:  init
 deploy: init
 	git clone $(remoteURL) $(pubDir)
 	hugo
-	-cd $(pubDir); git add -A; git commit -am "$(commit)"; git push origin master
-	rm -rf public
+	cd $(pubDir); git add -A; git commit -am "$(commit)"; git push -u origin master
 init:
 	GOPATH=$(GOPATH) go get -v $(hugo)
+clean:
+	rm -rf public
