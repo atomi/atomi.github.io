@@ -1,0 +1,6 @@
+build:
+  image: atomi/hugo
+  commands:
+    - make deploy
+  when:
+    event: tag
