@@ -9,4 +9,4 @@ deploy:
 clean:
 	rm -rf public
 hugo:
-	go get -uv github.com/spf13/hugo
+	go get -u -v github.com/spf13/hugo
