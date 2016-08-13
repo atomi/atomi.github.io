@@ -1,16 +1,22 @@
 body {
-	margin: 0 auto;
-	max-width: 960px;
 	overflow-y:scroll;
-
 }
 
 div.wrapper {
-	margin: 0 20px;
-	/* sticky footer */
 	display: flex;
-	min-height: 100vh;
+	min-height: 96vh;
 	flex-direction: column;
+}
+div.postlist , div.post  {
+	flex: 1
+}
+
+div.post img {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	max-width: 100%;
+	background-color: transparent;
 }
 
 div.menu,
