@@ -1,0 +1,69 @@
+
+==================================================================
+https://keybase.io/atomi
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://atomi.github.io
+  * I am atomi (https://keybase.io/atomi) on keybase.
+  * I have a public key with fingerprint 73BE 46D1 FBFC 01D6 EAEB  4437 BE75 5050 078C 4570
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0101da4f8ef3fa202cf2cffeca90b2009a290de5a0adbc57983a61a8a021ba5ff31d0a",
+            "fingerprint": "73be46d1fbfc01d6eaeb4437be755050078c4570",
+            "host": "keybase.io",
+            "key_id": "be755050078c4570",
+            "kid": "0101da4f8ef3fa202cf2cffeca90b2009a290de5a0adbc57983a61a8a021ba5ff31d0a",
+            "uid": "7f185fb9bbc10e353653e40352b50600",
+            "username": "atomi"
+        },
+        "service": {
+            "hostname": "atomi.github.io",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1471631751,
+    "expire_in": 157680000,
+    "prev": "7002b254e3458718b184253feb29855dcd1a40d90be9fdf852ffadcffe1ee897",
+    "seqno": 13,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.56
+Comment: https://keybase.io/crypto
+
+yMIpAnicrVJrSBRRFF57WG4vWYIQzWoqsFC7d2buzuz22oLoQVCZkGS03Ttz7zqo
+O9vOrPnICqIHFNGD0l5YbZYFkRuhpkkZYpKgf6KIIvyRRAW9fiT2vmMF/ehnlwuX
+e853vvN9h9M5YaTLnZRz6DDLeNd6Iamnozbm2tC8bl+VQEy9QvBXCcV0+KElOrXs
+YLGhC34BQAB1LDOVMolhEYga45dRDfsAEQHwYdEHdIowwDrRkOJTJeyFWMVAhAQj
+xiSoAyxkC8wIh2g0EjXCNqdVJEJlrw4ZYRpv4KWYElmWFEIVhAACQFE1GSmAFxaZ
+llPBxRFs0VzD5DH+CQ7L+wf+P+uODdMpDKqIER8hGgRUQpIXSVQGEhIJAl7g9I1Z
+NBrGpZSjsW2WGkJ1tsBDZYZGnak6Nv5O54YMuyhGfvmJRE3b1MwSniyy7Yjld4rt
+ioiD3kZJ8DdPkBhhnc+RV5TRqGWYYcEPOVKzDYcYygr0SlBBMFug5REjSoOGg0CK
+VwX8OH1omeMGAJGISKaSjFQFqgSqsogkRonoUxHSNR1iGeh8UtTHdKYikTGsO+OD
+lKo+RXCcbQ2bnFviOnGIc1pGKIztWJQK1ffubhrlSnK7kkePcBbM5U5J/bN27+0x
+P9ZGC159iJ/o9K/4srdmev75ozvfJHKmzr0ev9q34JvbXvFyRBYZn15JPO5Jvb2b
+V21p+Lpt7CIjz9udM3LazLpspbJ1f3ty7dftxRPx0vySxr2eJ8e+HCltqV728eHj
+rl2fbzfcDy9v3D+5bWjR9zd959ZcPK6lHlg4ZV5TFYtnduVYPRnrH1Rkpk0sxHkH
+6WDXyitCd17B20B+Oeq+2+s5lzX/6Oqhs882Jm7MXhycmtk/42n6jjmBF7MCgQdN
+ga6a5trKcQMJT1lW8Y7TGe72lkevb+3pSBT277JPWcm0/sOSmxemDKac0TIjz2uK
+7lw+GapL0y9VDJR7rsU/qfWh0rbdB38C87NBxw==
+=9N+S
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/atomi
+
+==================================================================
