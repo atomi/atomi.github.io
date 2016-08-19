@@ -20,7 +20,7 @@
 {{- $.Scratch.Add "path" .Site.BaseURL }}
 
 <div class="crumbs">
-  <a href="/"><img src="https://s.gravatar.com/avatar/b93548159967b65db2b1a3ed2e10b279?s=30" alt="atomi" /></a>
+  <a href="/"><img src="//gravatar.com/avatar/68fbaa9a6bdad986f08cffd30738795e?s=30" alt="atomi" /></a>
   <a href="/">atomi</a>/{{- range $index, $element := split $url "/" }}{{- $.Scratch.Add "path" $element }}{{- if ne $element "" }}<a href='{{- $.Scratch.Get "path" }}/'>{{- . }}</a>/{{- $.Scratch.Add "path" "/" }}{{- end }}{{- end }}
 </div>
 
