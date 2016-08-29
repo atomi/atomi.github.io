@@ -1,6 +1,10 @@
-build:
-  image: atomi/hugo
-  commands:
-    - git config --global user.name "atomi"
-    - git config --global user.email "louiedog81@gmail.com"
-    - make deploy
+pipeline:
+  publish:
+    image: atomi/hugo
+    commands:
+    - eval $(ssh-agent);echo "$PRIVATE_KEY" | ssh-add /dev/stdin;
+    - git config --global user.name 'atomi'; git config --global user.email 'louiedog81@gmail.com'
+    - git clone git@github.com:atomi/atomi.github.io.git public;hugo
+    - cd public; git commit -am '${DRONE_COMMIT:0:10}'
+    - git push -u origin master
+
