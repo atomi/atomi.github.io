@@ -62,4 +62,9 @@ pipeline:
     - git push -u origin master
 ```
 
-The interesting thing here is the use of `ssh-agent` and `ssh-add` to provide the 
+The interesting thing here is the use of `ssh-agent` and `ssh-add`. Since Drone 0.5 no longer provides deploy keys, you have to inject your own deploy keys, which is where drone-cli comes in.
+
+```bash
+# for drone-cli
+export DRONE_TOKEN={token from drone user interface}
+` ``
