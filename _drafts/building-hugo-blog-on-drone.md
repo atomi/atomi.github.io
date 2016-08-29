@@ -1,4 +1,4 @@
-y---
+---
 Title: Building Hugo Blog on Drone
 Date: 2016-08-28
 ---
@@ -9,7 +9,8 @@ First, was that Drone 0.5 requires running an additional container, a drone agen
 
 Customize variables.
 
-```
+```bash
+# do not use a trailing slash for the url
 export GOGS_SERVER={gogs url}
 export DRONE_SERVER={drone url}
 export DRONE_SECRET={custom passphrase}
@@ -18,8 +19,8 @@ export GOGS_USER={gogs username}
 
 Here are the command line launchers:
 
-```
-# drone server
+```bash
+# drone server (set to debug for easier troubleshooting)
 docker run --detach \
   --name drone \
   -p 8000:8000 \
@@ -43,6 +44,22 @@ docker run --detach \
   drone/drone:0.5 agent    
 ```
 
-There are also other options that allows running drone-agents from various architectures including arm. Check the current documentation.
+There are also other variables now that allow running drone-agents from various architectures including arm. Check the current documentation: http://readme.drone.io/0.5/installation/agents/    
 
 Next was the new yaml configuration. This was easy. The new yaml is definitely an improvement and allows for a step process to your builds.  
+
+Here is my `.drone.yml`
+
+```
+pipeline:
+  publish:
+    image: atomi/hugo
+    commands:
+    - eval $(ssh-agent);echo "$PRIVATE_KEY" | ssh-add /dev/stdin;
+    - git config --global user.name 'atomi'; git config --global user.email 'example@gmail.com'
+    - git clone git@github.com:atomi/atomi.github.io.git public;hugo
+    - cd public; git commit -am '${DRONE_COMMIT:0:10}'
+    - git push -u origin master
+```
+
+The interesting thing here is the use of `ssh-agent` and `ssh-add` to provide the 
