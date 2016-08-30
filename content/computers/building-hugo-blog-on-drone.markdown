@@ -1,6 +1,6 @@
 ---
-Title: Building Hugo Blog on Drone
-Date: 2016-08-28
+title: "Building Hugo Blog on Drone"
+date: "2016-08-28"
 ---
 
 I've been using Drone for a few months now and decided to jump on the 0.5 release a few days ago. Today I finally got Hugo builds working the way I want. But I had a few issues I had to resolve before moving from 0.4.   
@@ -75,5 +75,3 @@ drone secret add --image atomi/hugo atomi/atomi.github.io PRIVATE_KEY @/home/ato
 ```
 
 As far as I know `drone secret add` puts any secret added into an environment variables. In the above case I add my private key to the $PRIVATE_KEY variable. The `--image atomi/hugo` restricts injection to only that image. My `.drone.yml` file can now make use of the $PRIVATE_KEY. `eval $(ssh-agent)` starts the `ssh-agent`, and `echo "$PRIVATE_KEY" | ssh-add /dev/std/in` adds our key to `ssh-agent` for our git+ssh authorizations.
-
-
