@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <base href="https://atomi.github.io/">
+    <title>"Building Hugo Blog on Drone" - atomi</title>
+    <link rel="canonical" href="https://atomi.github.io/computers/building-hugo-blog-on-drone/">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/components/container.min.css">
+    <link rel="stylesheet" href="/css/simple.css">
+    <link rel="stylesheet" href="/css/prism.css">
+</head>
+
+<body class="ui container">
+<div class="wrapper ">
+
+<div class="crumbs">
+  <a href="/"><img src="//gravatar.com/avatar/68fbaa9a6bdad986f08cffd30738795e?s=30" alt="atomi" /></a>
+  <a href="/">atomi</a>/<a href='https://atomi.github.io/computers/'>computers</a>/<a href='https://atomi.github.io/computers/building-hugo-blog-on-drone/'>building-hugo-blog-on-drone</a>/
+</div>
+
+<div class="menu">
+      <ul>
+        <li><a href="https://atomi.github.io/bread-recipes/">Bread Recipes</a></li>
+      </ul>
+    <ul>
+      <li><a href="/computers">Computers</a></li>
+      <li><a href="/garden">Garden</a></li>
+      <li><a href="/social">Social</a></li>
+    </ul>
+</div>
+
+<div class="post">
+
+<div class="prevnext">
+  
+    
+      <a href="/garden/princess-faten-chilli-pepper/" title="Princess Faten Chilli Pepper"> Prev</a>
+    
+  
+  |
+  
+  Next
+  
+</div>
+ <div class="date">
+   Sun. August 28, 2016
+ </div>
+
+<div class="postcontent">
+   <p>I&rsquo;ve been using Drone for a few months now and decided to jump on the 0.5 release a few days ago. Today I finally got Hugo builds working the way I want. But I had a few issues I had to resolve before moving from 0.4.</p>
+
+<p>First, was that Drone 0.5 requires running an additional container, a drone agent that uses a <code>DRONE_SECRET</code> token to authorize.</p>
+
+<p>To launch the containers customize your variables:</p>
+
+<pre><code class="language-bash"># do not use a trailing slash for the url
+export GOGS_SERVER={http://gogsurl}
+export DRONE_SERVER={http://droneurl}
+export DRONE_SECRET={custom passphrase}
+export GOGS_USER={gogs username}
+</code></pre>
+
+<p>Here are the commands to launch both the server and agent:</p>
+
+<pre><code class="language-bash"># drone server (set to debug for easier troubleshooting)
+docker run --detach \
+  --name drone \
+  -p 8000:8000 \
+  -v /var/lib/drone:/var/lib/drone \
+  -e DRONE_SECRET=$DRONE_SECRET \
+  -e DRONE_GOGS=true \
+  -e DRONE_GOGS_URL=$GOGS_SERVER \
+  -e GIN_MODE=debug \
+  -e DRONE_ADMIN=$GOGS_USER \
+  -e DRONE_DEBUG=true \
+  --restart always \
+  drone/drone:0.5
+
+# drone-agent
+docker run --detach \
+  --name drone-agent \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -e DRONE_SERVER=$DRONE_SERVER \
+  -e DRONE_SECRET=$DRONE_SECRET \
+  --restart always \
+  drone/drone:0.5 agent    
+</code></pre>
+
+<p>I&rsquo;m using Gogs in this case, but Drone works with Bitbucket and Github as well.</p>
+
+<p>Next was the new yaml configuration. This was easy. The new yaml is definitely an improvement and allows for a step process to your builds.</p>
+
+<p>Here is my <code>.drone.yml</code></p>
+
+<pre><code>pipeline:
+  publish:
+    image: atomi/hugo
+    commands:
+    - eval $(ssh-agent);echo &quot;$PRIVATE_KEY&quot; | ssh-add /dev/stdin;
+    - git config --global user.name 'atomi'; git config --global user.email 'example@gmail.com'
+    - git clone git@github.com:atomi/atomi.github.io.git public; hugo
+    - cd public; git add -A; git commit -am '${DRONE_COMMIT:0:10}'
+    - git push -u origin master
+</code></pre>
+
+<p>The interesting thing here is the use of <code>ssh-agent</code> and <code>ssh-add</code>. Since Drone 0.5 no longer provides deploy keys for improved security, you have to inject your own deploy keys, which is where drone-cli comes in.</p>
+
+<p>Download the Drone CLI client and make sure the following environment variables are set so that <code>drone</code> command works properly:</p>
+
+<pre><code class="language-bash"># for drone-cli
+export DRONE_SERVER={http://droneurl}
+export DRONE_TOKEN={token from drone user interface}
+
+# add our deploy key to $PRIVATE_KEY environment variable
+drone secret add --image atomi/hugo atomi/atomi.github.io PRIVATE_KEY @/home/atomi/.ssh/id_rsa_atomi.github.io
+drone sign atomi/atomi.github.io
+</code></pre>
+
+<p>The <code>drone secret add</code> command puts any secrets added into environment variables. In the above case I add my private key to the $PRIVATE_KEY variable. The <code>--image atomi/hugo</code> restricts injection to only that image. My <code>.drone.yml</code> file can now make use of the $PRIVATE_KEY. <code>eval $(ssh-agent)</code> starts the <code>ssh-agent</code>, and <code>echo &quot;$PRIVATE_KEY&quot; | ssh-add /dev/std/in</code> adds our key to <code>ssh-agent</code> for our <code>git+ssh</code> authorizations.</p>
+
+</div>
+</div>
+<div class="footer">
+  <p>
+    Copyright &copy; {2015, 2016}
+    <br />
+    Permission is hereby granted to reproduce, display, and distribute this site in it's entirety.
+    <br />
+    Source: <a href="https://github.com/atomi/atomi.github.io.git">https://github.com/atomi/atomi.github.io.git</a>
+    <br />
+    Send questions and comments to  <a href="https://twitter.com/atomi">@atomi</a> on Twitter. :-)
+  </p>
+</div>
+
+</div>
+<script src="/js/prism.js" charset="utf-8"></script>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+    extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+    all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+</body>
+
+</html>
+
