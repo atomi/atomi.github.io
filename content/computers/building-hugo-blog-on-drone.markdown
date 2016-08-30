@@ -56,8 +56,8 @@ pipeline:
     commands:
     - eval $(ssh-agent);echo "$PRIVATE_KEY" | ssh-add /dev/stdin;
     - git config --global user.name 'atomi'; git config --global user.email 'example@gmail.com'
-    - git clone git@github.com:atomi/atomi.github.io.git public;hugo
-    - cd public; git commit -am '${DRONE_COMMIT:0:10}'
+    - git clone git@github.com:atomi/atomi.github.io.git public; hugo
+    - cd public; git add -A; git commit -am '${DRONE_COMMIT:0:10}'
     - git push -u origin master
 ```
 
@@ -72,6 +72,7 @@ export DRONE_TOKEN={token from drone user interface}
 
 # add our deploy key to $PRIVATE_KEY environment variable
 drone secret add --image atomi/hugo atomi/atomi.github.io PRIVATE_KEY @/home/atomi/.ssh/id_rsa_atomi.github.io
+drone sign atomi/atomi.github.io
 ```
 
-As far as I know `drone secret add` puts any secret added into an environment variables. In the above case I add my private key to the $PRIVATE_KEY variable. The `--image atomi/hugo` restricts injection to only that image. My `.drone.yml` file can now make use of the $PRIVATE_KEY. `eval $(ssh-agent)` starts the `ssh-agent`, and `echo "$PRIVATE_KEY" | ssh-add /dev/std/in` adds our key to `ssh-agent` for our git+ssh authorizations.
+The `drone secret add` command puts any secrets added into environment variables. In the above case I add my private key to the $PRIVATE_KEY variable. The `--image atomi/hugo` restricts injection to only that image. My `.drone.yml` file can now make use of the $PRIVATE_KEY. `eval $(ssh-agent)` starts the `ssh-agent`, and `echo "$PRIVATE_KEY" | ssh-add /dev/std/in` adds our key to `ssh-agent` for our `git+ssh` authorizations.
