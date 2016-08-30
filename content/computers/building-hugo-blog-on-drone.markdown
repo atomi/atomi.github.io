@@ -49,7 +49,7 @@ Next was the new yaml configuration. This was easy. The new yaml is definitely a
 
 Here is my `.drone.yml`
 
-```
+```yaml
 pipeline:
   publish:
     image: atomi/hugo
