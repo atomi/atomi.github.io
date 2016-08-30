@@ -5,19 +5,19 @@ Date: 2016-08-28
 
 I've been using Drone for a few months now and decided to jump on the 0.5 release a few days ago. Today I finally got Hugo builds working the way I want. But I had a few issues I had to resolve before moving from 0.4.   
 
-First, was that Drone 0.5 requires running an additional container, a drone agent, and using `DRONE_SECRET` to authorize is preferred.
+First, was that Drone 0.5 requires running an additional container, a drone agent that uses a `DRONE_SECRET` token to authorize.
 
-Customize variables.
+To launch the containers customize your variables:
 
 ```bash
 # do not use a trailing slash for the url
-export GOGS_SERVER={gogs url}
-export DRONE_SERVER={drone url}
+export GOGS_SERVER={http://gogsurl}
+export DRONE_SERVER={http://droneurl}
 export DRONE_SECRET={custom passphrase}
 export GOGS_USER={gogs username}
 ```
 
-Here are the command line launchers:
+Here are the commands to launch both the server and agent:
 
 ```bash
 # drone server (set to debug for easier troubleshooting)
@@ -43,8 +43,7 @@ docker run --detach \
   --restart always \
   drone/drone:0.5 agent    
 ```
-
-There are also other variables now that allow running drone-agents from various architectures including arm. Check the current documentation: http://readme.drone.io/0.5/installation/agents/    
+I'm using Gogs in this case, but Drone works with Bitbucket and Github as well.    
 
 Next was the new yaml configuration. This was easy. The new yaml is definitely an improvement and allows for a step process to your builds.  
 
@@ -62,9 +61,19 @@ pipeline:
     - git push -u origin master
 ```
 
-The interesting thing here is the use of `ssh-agent` and `ssh-add`. Since Drone 0.5 no longer provides deploy keys, you have to inject your own deploy keys, which is where drone-cli comes in.
+The interesting thing here is the use of `ssh-agent` and `ssh-add`. Since Drone 0.5 no longer provides deploy keys for improved security, you have to inject your own deploy keys, which is where drone-cli comes in.
+
+Download the Drone CLI client and make sure the following environment variables are set so that `drone` command works properly:
 
 ```bash
 # for drone-cli
+export DRONE_SERVER={http://droneurl}
 export DRONE_TOKEN={token from drone user interface}
+
+# add our deploy key to $PRIVATE_KEY environment variable
+drone secret add --image atomi/hugo atomi/atomi.github.io PRIVATE_KEY @/home/atomi/.ssh/id_rsa_atomi.github.io
 ```
+
+As far as I know `drone secret add` puts any secret added into an environment variables. In the above case I add my private key to the $PRIVATE_KEY variable. The `--image atomi/hugo` restricts injection to only that image. My `.drone.yml` file can now make use of the $PRIVATE_KEY. `eval $(ssh-agent)` starts the `ssh-agent`, and `echo "$PRIVATE_KEY" | ssh-add /dev/std/in` adds our key to `ssh-agent` for our git+ssh authorizations.
+
+
