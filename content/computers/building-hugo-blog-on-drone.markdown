@@ -68,6 +68,8 @@ Download the Drone CLI client and make sure the following environment variables 
 ```bash
 # for drone-cli
 export DRONE_SERVER={http://droneurl}
+
+# user token under "Account" in Drone UI
 export DRONE_TOKEN={token from drone user interface}
 
 # add our deploy key to $PRIVATE_KEY environment variable
