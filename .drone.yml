@@ -5,5 +5,5 @@ pipeline:
     - eval $(ssh-agent);echo "$PRIVATE_KEY" | ssh-add /dev/stdin;
     - git config --global user.name 'atomi'; git config --global user.email 'louiedog81@gmail.com'
     - git clone git@github.com:atomi/atomi.github.io.git public; hugo
-    - cd public; git add -A; git commit -am '${DRONE_COMMIT:0:10}'
+    - cd public; touch .nojekyll; git add -A; git commit -am '${DRONE_COMMIT:0:10}'
     - git push -u origin master
