@@ -1,5 +1,5 @@
 ---
-title: "Building Hugo Blog on Drone"
+title: "Building A Hugo Blog on Drone"
 date: "2016-08-28"
 ---
 
