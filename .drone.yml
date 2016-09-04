@@ -1,4 +1,6 @@
 pipeline:
+  clone:
+    image: armhfplugins/drone-git
   publish:
     image: atomi/rpi-hugo
     commands:
