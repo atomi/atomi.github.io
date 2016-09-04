@@ -1,6 +1,6 @@
 pipeline:
   publish:
-    image: atomi/hugo
+    image: atomi/rpi-hugo
     commands:
     - eval $(ssh-agent);echo "$PRIVATE_KEY" | ssh-add /dev/stdin;
     - git config --global user.name 'atomi'; git config --global user.email 'louiedog81@gmail.com'
