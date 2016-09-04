@@ -1,6 +1,6 @@
 pipeline:
   clone:
-    image: armdrone/drone-git
+    image: atomi/rpi-drone-git
   publish:
     image: atomi/rpi-hugo
     commands:
