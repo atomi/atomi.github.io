@@ -120,8 +120,6 @@ drone sign atomi/atomi.github.io
 
 <p>The <code>drone secret add</code> command puts any secrets added into environment variables. In the above case I add my private key to the $PRIVATE_KEY variable. The <code>--image atomi/hugo</code> restricts injection to only that image. My <code>.drone.yml</code> file can now make use of the $PRIVATE_KEY. <code>eval $(ssh-agent)</code> starts the <code>ssh-agent</code>, and <code>echo &quot;$PRIVATE_KEY&quot; | ssh-add /dev/std/in</code> adds our key to <code>ssh-agent</code> for our <code>git+ssh</code> authorizations.</p>
 
-<p>:-)</p>
-
 </div>
 </div>
 <div class="footer">
