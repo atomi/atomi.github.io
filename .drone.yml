@@ -3,7 +3,7 @@ pipeline:
     image: atomi/hugo:latest
     commands:
     - env
-    - eval $(ssh-agent);echo -e "$PRIVATE_KEY" | ssh-add /dev/stdin;
+    - eval $(ssh-agent);echo "$PRIVATE_KEY" | ssh-add /dev/stdin;
     - git config --global user.name 'atomi'; git config --global user.email 'louiedog81@gmail.com'
     - git clone git@github.com:atomi/atomi.github.io.git public; hugo
     - cd public; touch .nojekyll; git add -A; git commit -am '${DRONE_COMMIT:0:10}'
