@@ -1,8 +1,6 @@
 pipeline:
-  clone:
-    image: atomi/drone-git:armhf
   publish:
-    image: atomi/hugo:armhf
+    image: atomi/hugo:latest
     commands:
     - eval $(ssh-agent);echo "$PRIVATE_KEY" | ssh-add /dev/stdin;
     - git config --global user.name 'atomi'; git config --global user.email 'louiedog81@gmail.com'
