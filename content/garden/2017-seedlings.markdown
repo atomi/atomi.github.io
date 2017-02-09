@@ -3,7 +3,7 @@ title: 2017 Seedlings
 date: '2017-02-08'
 ---
 
-Spring is around the corner and my seedlings are almost ready to be planted!   
+Spring is around the corner and my seedlings are almost ready to plant!   
 
 - white cherry tomatoes
 - chocolate cherry tomatoes
