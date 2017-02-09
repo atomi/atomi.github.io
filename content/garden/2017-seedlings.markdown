@@ -15,7 +15,7 @@ Spring is around the corner and my seedlings are almost ready to plant!
 - lebanese squash
 - ronde de nice squash
 - crimson sweet watermelon
-- dill & greek oregano & marjoram
+- dill, greek oregano, marjoram & chamomile
 - portuguese kale
 - lettuce leaf basil
 - honeydew melon
