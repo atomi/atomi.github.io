@@ -10,7 +10,8 @@ Spring is around the corner and my seedlings are almost ready to be planted!
 - variety of heirloom tomatoes
 - red & yellow fatali peppers
 - red & yellow devils tongue peppers
-- bhut jolokia pepeprs
+- bhut jolokia peppers
+- carolina reapers
 - lebanese squash
 - ronde de nice squash
 - crimson sweet watermelon
