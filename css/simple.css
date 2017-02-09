@@ -42,9 +42,11 @@ div.postlist ul { list-style: none; }
 div.post .date { float: right; }
 div.post .prevnext { float: left; }
 
-div.post .postcontent { clear:both; text-align: justify; text-justify: inter-word; }
+div.post .postcontent { clear:both; text-align: justify; text-justify: inter-word; border: 1px solid transparent; }
 div.post .postcontent > p:first-child::first-letter { font-size: 2em; font-weight: lighter }
 div.post .postcontent blockquote cite::before { content: "- "; }
+
+div.post .postcontent ul {padding-left: 30px}
 
 div.recipes ul{ list-style-type: none; width: 360px; margin-bottom: 20px; }
 div.recipes ul li {border-bottom: dotted 1px #515151; }
