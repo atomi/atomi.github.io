@@ -7,6 +7,7 @@ Spring is around the corner and my seedlings are almost ready to plant!
 
 - white cherry tomatoes
 - chocolate cherry tomatoes
+- yellow egg tomatoes
 - variety of heirloom tomatoes
 - red & yellow fatali peppers
 - red & yellow devils tongue peppers
