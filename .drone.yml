@@ -1,6 +1,7 @@
 pipeline:
   publish:
     image: atomi/hugo:latest
+    ssh_key: ${SSH_KEY}
     commands:
     - env 
     - eval $(ssh-agent);echo "$SSH_KEY" | ssh-add /dev/stdin;
