@@ -1,5 +1,6 @@
 pipeline:
   publish:
+    environment: lol='test'
     image: atomi/hugo:latest
     SSH_KEY: ${PLUGIN_SSH_KEY}
     commands:
