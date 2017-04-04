@@ -1,7 +1,6 @@
 pipeline:
   publish:
     image: atomi/hugo:latest
-    ssh_key: ${SSH_KEY}
     commands:
     - env 
     - eval $(ssh-agent);echo "$SSH_KEY" | ssh-add /dev/stdin;
@@ -9,6 +8,7 @@ pipeline:
     - git clone git@github.com:atomi/atomi.github.io.git public; hugo
     - cd public; touch .nojekyll; git add -A; git commit -am '${DRONE_COMMIT:0:10}'
     - git push -u origin master
+    ssh_key: ${SSH_KEY}
   build_notification:
     image: plugins/gitter
     webhook: https://webhooks.gitter.im/e/9d079d14036a88e172a7
