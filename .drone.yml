@@ -3,6 +3,7 @@ pipeline:
     image: atomi/hugo:latest
     secrets: [ ssh_key ]
     commands:
+      - env
       - eval $(ssh-agent);echo "$ssh_key" | ssh-add /dev/stdin;
       - git config --global user.name 'atomi'; git config --global user.email 'louiedog81@gmail.com'
       - git clone git@github.com:atomi/atomi.github.io.git public; hugo
