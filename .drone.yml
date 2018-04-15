@@ -9,8 +9,3 @@ pipeline:
       - git clone git@github.com:atomi/atomi.github.io.git public; hugo
       - cd public; touch .nojekyll; git add -A; git commit -am '${DRONE_COMMIT:0:10}'
       - git push -u origin master
-  build_notification:
-    image: plugins/gitter
-    webhook: https://webhooks.gitter.im/e/9d079d14036a88e172a7
-    when:
-      status: [ success, failure ]
