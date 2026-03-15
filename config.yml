@@ -7,3 +7,7 @@ disable404: true
 canonifyurls: false
 permalinks:
         fixed: :title/
+
+markup:
+  highlight:
+    noClasses: false
