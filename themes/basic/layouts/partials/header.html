@@ -9,11 +9,10 @@
     <title>"{{- .Title }}" - atomi</title>
     {{- end }}
     <link rel="canonical" href="{{- .Permalink }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/components/container.min.css">
     <link rel="stylesheet" href="/css/simple.css">
 </head>
 
-<body class="ui container">
+<body>
 <div class="wrapper ">
 {{- $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
 {{- $.Scratch.Add "path" .Site.BaseURL }}
