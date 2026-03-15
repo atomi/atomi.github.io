@@ -47,8 +47,11 @@ div.postlist, div.post {
   flex: 1;
 }
 
-div.menu, div.crumbs, div.postlist, div.post, div.footer {
+div.postlist, div.post, div.footer {
   margin-top: 1.5rem;
+}
+div.post {
+  margin-top: 2rem;
 }
 
 div.footer {
@@ -60,14 +63,50 @@ div.footer {
   text-align: center;
 }
 
+/* Site header */
+header.site-header {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+div.crumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85em;
+  color: var(--text-muted);
+  margin-bottom: 0.6rem;
+}
+div.crumbs img {
+  display: block;
+  border-radius: 50%;
+  margin-right: 0.1rem;
+}
+div.crumbs a {
+  color: var(--text-muted);
+}
+div.crumbs a:hover {
+  color: var(--accent);
+}
+
 /* Menu */
-div.menu ul {
+nav.menu ul {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
   padding: 0;
   margin: 0;
-  gap: 1.5rem;
+  gap: 0.25rem 1.25rem;
+}
+nav.menu li a {
+  font-size: 0.85em;
+  color: var(--text-muted);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+nav.menu li a:hover {
+  color: var(--accent);
 }
 
 /* Post list */
