@@ -1,10 +1,24 @@
+{{ $paginator := .Paginate (where .Data.Pages "Section" "ne" "fixed") }}
 <div class="postlist">
   <ul>
-    <!-- range sort $.Data.Pages "Date" "desc"  -->
-    <!-- range (where $.Data.Pages "Section" "ne" "fixed").Reverse -->
-    {{ range (where .Data.Pages "Section" "ne" "fixed") }}
-    <li>{{ .Date.Format "2006/01" }} <a href="{{ .Permalink}}"> {{ .LinkTitle }}</a>{{ if $.IsHome }} | <a
-        href="/{{ .Section | urlize  }}">{{ title .Section }}</a> {{ end }}</li>
+    {{ range $paginator.Pages }}
+    <li>
+      <span class="date">{{ .Date.Format "2006/01" }}</span>
+      <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+      {{ if $.IsHome }}<a class="tag" href="/{{ .Section | urlize }}">{{ title .Section }}</a>{{ end }}
+    </li>
     {{ end }}
   </ul>
+
+  {{ if gt $paginator.TotalPages 1 }}
+  <nav class="pagination">
+    {{ if $paginator.HasPrev }}
+      <a href="{{ $paginator.Prev.URL }}">← newer</a>
+    {{ end }}
+    <span>{{ $paginator.PageNumber }} / {{ $paginator.TotalPages }}</span>
+    {{ if $paginator.HasNext }}
+      <a href="{{ $paginator.Next.URL }}">older →</a>
+    {{ end }}
+  </nav>
+  {{ end }}
 </div>
