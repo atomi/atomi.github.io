@@ -1,4 +1,10 @@
-.PHONY: run
+.PHONY: run build clean
 
-run:
+clean:
+	rm -rf public resources
+
+run: clean
 	hugo server -D
+
+build: clean
+	hugo
