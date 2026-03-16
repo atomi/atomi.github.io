@@ -153,8 +153,8 @@ div.footer {
 /* ── Site header ──────────────────────────────────────────────── */
 header.site-header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
   margin-bottom: 2rem;
 }
 
@@ -191,16 +191,19 @@ div.crumbs a:hover {
 }
 
 /* ── Menu ─────────────────────────────────────────────────────── */
+nav.menu {
+  align-self: flex-end;
+}
 nav.menu ul {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
   padding: 0;
   margin: 0;
-  gap: 0.25rem 1.25rem;
+  gap: 0.25rem 1rem;
 }
 nav.menu li a {
-  font-size: 0.85em;
+  font-size: 0.75em;
   color: var(--text-muted);
   text-decoration: none;
   letter-spacing: 0.02em;
