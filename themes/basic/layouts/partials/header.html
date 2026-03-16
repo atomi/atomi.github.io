@@ -22,7 +22,10 @@
 <header class="site-header">
   <div class="crumbs">
     <a href="/"><img src="//gravatar.com/avatar/68fbaa9a6bdad986f08cffd30738795e?s=30" alt="atomi" /></a>
-    <a href="/">atomi</a> : I'm still alive edition.
+    <div class="site-title">
+      <a href="/">atomi</a>
+      <span class="site-status">still alive</span>
+    </div>
     {{- $parts := split (strings.TrimPrefix "/" .RelPermalink) "/" }}
     {{- $built := slice }}
     {{- range $parts }}
