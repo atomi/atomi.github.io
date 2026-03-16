@@ -1,12 +1,80 @@
+/* ── Synthwave (default) ──────────────────────────────────────── */
 :root {
-  --bg-color: #ffffff;
-  --text-main: #333333;
-  --text-muted: #666666;
-  --accent: #005cc5;
-  --border: #e1e4e8;
-  --code-bg: #f6f8fa;
+  --bg-color:   #0b0a18;
+  --bg-raised:  #12102a;
+  --text-main:  #ddd8f5;
+  --text-muted: #7a6fa8;
+  --accent:     #ff2d9b;
+  --accent-2:   #39d5ff;
+  --border:     #2a1f4a;
+  --code-bg:    #16122e;
+
+  --heading-color:  var(--accent-2);
+  --code-color:     var(--accent);
+  --drop-cap-color: var(--accent);
+
+  --glow-pink:            0 0 6px #ff2d9b, 0 0 14px #ff2d9b55;
+  --glow-cyan:            0 0 6px #39d5ff, 0 0 14px #39d5ff55;
+  --glow-avatar:          0 0 6px #ff2d9b88;
+  --glow-header-border:   0 1px 0 #ff2d9b22;
+  --glow-tag-box:         0 0 5px #ff2d9b66;
+  --glow-tag-text:        0 0 5px #ff2d9b88;
+  --glow-tag-hover-box:   0 0 8px #39d5ffaa;
+  --glow-tag-hover-text:  0 0 8px #39d5ffaa;
+  --glow-pre:             0 0 16px #39d5ff18, inset 0 0 30px #0b0a1866;
+  --glow-code-text:       0 0 4px #ff2d9b66;
+  --glow-blockquote:      -3px 0 10px #ff2d9b44;
+  --glow-img:             0 0 14px #39d5ff33;
+
+  /* syntax */
+  --syn-keyword:  #ff2d9b; --syn-keyword-glow:  0 0 5px #ff2d9b88;
+  --syn-name:     #ddd8f5;
+  --syn-string:   #ffe080; --syn-string-glow:   0 0 4px #ffe08066;
+  --syn-number:   #39d5ff; --syn-number-glow:   0 0 5px #39d5ff88;
+  --syn-comment:  #4d3f6e;
+  --syn-punct:    #b8aee0;
+  --syn-func:     #c77dff; --syn-func-glow:     0 0 5px #c77dff88;
+  --syn-class:    #ff9f43; --syn-class-glow:    0 0 4px #ff9f4366;
+  --syn-attr:     #39d5ff;
+  --syn-tag:      #39d5ff; --syn-tag-glow:      0 0 5px #39d5ff66;
 }
 
+/* ── Light (previous) ─────────────────────────────────────────── */
+:root:has(#theme-toggle:checked) {
+  --bg-color:   #ffffff;
+  --bg-raised:  #f6f8fa;
+  --text-main:  #333333;
+  --text-muted: #666666;
+  --accent:     #005cc5;
+  --accent-2:   #005cc5;
+  --border:     #e1e4e8;
+  --code-bg:    #f6f8fa;
+
+  --heading-color:  #111111;
+  --code-color:     #c92a2a;
+  --drop-cap-color: #111111;
+
+  --glow-pink: none; --glow-cyan: none;
+  --glow-avatar: none; --glow-header-border: none;
+  --glow-tag-box: none; --glow-tag-text: none;
+  --glow-tag-hover-box: none; --glow-tag-hover-text: none;
+  --glow-pre: none; --glow-code-text: none;
+  --glow-blockquote: none; --glow-img: none;
+
+  /* syntax */
+  --syn-keyword:  #d73a49; --syn-keyword-glow:  none;
+  --syn-name:     #24292e;
+  --syn-string:   #032f62; --syn-string-glow:   none;
+  --syn-number:   #005cc5; --syn-number-glow:   none;
+  --syn-comment:  #6a737d;
+  --syn-punct:    #24292e;
+  --syn-func:     #6f42c1; --syn-func-glow:     none;
+  --syn-class:    #e36209; --syn-class-glow:    none;
+  --syn-attr:     #005cc5;
+  --syn-tag:      #22863a; --syn-tag-glow:      none;
+}
+
+/* ── Base ─────────────────────────────────────────────────────── */
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.6;
@@ -25,34 +93,31 @@ div.wrapper {
 }
 
 a {
-  color: var(--accent);
+  color: var(--accent-2);
   text-decoration: none;
+  transition: color 0.15s, text-shadow 0.15s;
 }
 a:hover {
-  text-decoration: underline;
+  color: var(--accent);
+  text-shadow: var(--glow-pink);
+  text-decoration: none;
 }
 
 h1, h2, h3, h4, strong {
-  color: #111111;
+  color: var(--heading-color);
   margin-top: 1.5em;
   margin-bottom: 0.5em;
   font-weight: 600;
+  text-shadow: var(--glow-cyan);
 }
 h1 { font-size: 2rem; }
 h2 { font-size: 1.5rem; }
 h3 { font-size: 1.25rem; }
 
-/* Layout parts */
-div.postlist, div.post {
-  flex: 1;
-}
-
-div.postlist, div.post, div.footer {
-  margin-top: 1.5rem;
-}
-div.post {
-  margin-top: 2rem;
-}
+/* ── Layout ───────────────────────────────────────────────────── */
+div.postlist, div.post { flex: 1; }
+div.postlist, div.post, div.footer { margin-top: 1.5rem; }
+div.post { margin-top: 2rem; }
 
 div.footer {
   border-top: 1px solid var(--border);
@@ -63,9 +128,32 @@ div.footer {
   text-align: center;
 }
 
-/* Site header */
+/* ── Theme toggle ─────────────────────────────────────────────── */
+#theme-toggle { display: none; }
+
+.theme-label {
+  position: fixed;
+  top: 0.85rem;
+  right: 1rem;
+  cursor: pointer;
+  font-size: 0.72em;
+  letter-spacing: 0.07em;
+  color: var(--text-muted);
+  user-select: none;
+  z-index: 100;
+  transition: color 0.15s, text-shadow 0.15s;
+}
+.theme-label::before { content: "◑ light"; }
+:root:has(#theme-toggle:checked) .theme-label::before { content: "◑ dark"; }
+.theme-label:hover {
+  color: var(--accent);
+  text-shadow: var(--glow-pink);
+}
+
+/* ── Site header ──────────────────────────────────────────────── */
 header.site-header {
   border-bottom: 1px solid var(--border);
+  box-shadow: var(--glow-header-border);
   padding-bottom: 0.75rem;
   margin-bottom: 0.5rem;
 }
@@ -82,15 +170,15 @@ div.crumbs img {
   display: block;
   border-radius: 50%;
   margin-right: 0.1rem;
+  box-shadow: var(--glow-avatar);
 }
-div.crumbs a {
-  color: var(--text-muted);
-}
+div.crumbs a { color: var(--text-muted); }
 div.crumbs a:hover {
   color: var(--accent);
+  text-shadow: var(--glow-pink);
 }
 
-/* Menu */
+/* ── Menu ─────────────────────────────────────────────────────── */
 nav.menu ul {
   display: flex;
   flex-wrap: wrap;
@@ -107,14 +195,11 @@ nav.menu li a {
 }
 nav.menu li a:hover {
   color: var(--accent);
+  text-shadow: var(--glow-pink);
 }
 
-/* Post list */
-div.postlist ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+/* ── Post list ────────────────────────────────────────────────── */
+div.postlist ul { list-style: none; padding: 0; margin: 0; }
 div.postlist li {
   display: flex;
   align-items: center;
@@ -122,9 +207,7 @@ div.postlist li {
   padding: 0.55rem 0;
   border-bottom: 1px solid var(--border);
 }
-div.postlist li:first-child {
-  border-top: 1px solid var(--border);
-}
+div.postlist li:first-child { border-top: 1px solid var(--border); }
 div.postlist .date {
   color: var(--text-muted);
   font-size: 0.8em;
@@ -132,30 +215,33 @@ div.postlist .date {
   font-variant-numeric: tabular-nums;
   min-width: 4.5rem;
 }
-div.postlist li a:not(.tag) {
-  flex: 1;
-}
+div.postlist li a:not(.tag) { flex: 1; }
+
 a.tag {
   display: inline-block;
   font-size: 0.72em;
   font-weight: 500;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--text-muted);
-  border: 1px solid var(--border);
+  color: var(--accent);
+  border: 1px solid var(--accent);
   border-radius: 3px;
   padding: 0.15em 0.55em;
   white-space: nowrap;
   text-decoration: none;
-  transition: color 0.15s, border-color 0.15s;
+  box-shadow: var(--glow-tag-box);
+  text-shadow: var(--glow-tag-text);
+  transition: color 0.15s, border-color 0.15s, box-shadow 0.15s, text-shadow 0.15s;
 }
 a.tag:hover {
-  color: var(--accent);
-  border-color: var(--accent);
+  color: var(--accent-2);
+  border-color: var(--accent-2);
+  box-shadow: var(--glow-tag-hover-box);
+  text-shadow: var(--glow-tag-hover-text);
   text-decoration: none;
 }
 
-/* Pagination */
+/* ── Pagination ───────────────────────────────────────────────── */
 nav.pagination {
   display: flex;
   align-items: center;
@@ -166,7 +252,7 @@ nav.pagination {
   color: var(--text-muted);
 }
 
-/* Post styling */
+/* ── Post ─────────────────────────────────────────────────────── */
 div.post .date {
   color: var(--text-muted);
   font-size: 0.9em;
@@ -187,16 +273,11 @@ div.post img {
   border-radius: 6px;
   margin: 1rem 0;
   background-color: transparent;
+  box-shadow: var(--glow-img);
 }
 
-div.post .postcontent {
-  clear: both;
-}
-
-div.post .postcontent p {
-  margin-bottom: 1.2em;
-}
-
+div.post .postcontent { clear: both; }
+div.post .postcontent p { margin-bottom: 1.2em; }
 div.post .postcontent ul, div.post .postcontent ol {
   padding-left: 1.5rem;
   margin-bottom: 1.2em;
@@ -205,25 +286,25 @@ div.post .postcontent ul, div.post .postcontent ol {
 div.post .postcontent > p:first-child::first-letter {
   font-size: 2.5em;
   font-weight: 600;
-  color: #111;
+  color: var(--drop-cap-color);
+  text-shadow: var(--glow-pink);
   float: left;
   margin-right: 0.1em;
   line-height: 1;
 }
 
 blockquote {
-  border-left: 4px solid var(--accent);
+  border-left: 3px solid var(--accent);
+  box-shadow: var(--glow-blockquote);
   margin: 1.5em 0;
   padding: 0.5em 1em;
   color: var(--text-muted);
-  background-color: var(--code-bg);
+  background-color: var(--bg-raised);
   border-radius: 0 4px 4px 0;
 }
-blockquote cite::before {
-  content: "- ";
-}
+blockquote cite::before { content: "- "; }
 
-/* Code Syntax */
+/* ── Code ─────────────────────────────────────────────────────── */
 code, pre {
   font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
   font-size: 0.9em;
@@ -233,7 +314,8 @@ code {
   background-color: var(--code-bg);
   padding: 0.2em 0.4em;
   border-radius: 4px;
-  color: #c92a2a;
+  color: var(--code-color);
+  text-shadow: var(--glow-code-text);
 }
 
 pre {
@@ -242,6 +324,7 @@ pre {
   overflow-x: auto;
   border-radius: 6px;
   border: 1px solid var(--border);
+  box-shadow: var(--glow-pre);
   line-height: 1.5;
 }
 
@@ -250,6 +333,7 @@ pre code {
   padding: 0;
   border-radius: 0;
   color: inherit;
+  text-shadow: none;
 }
 
 code.has-jax {
@@ -260,32 +344,40 @@ code.has-jax {
   color: inherit;
 }
 
-/* Code coloring (GitHub Light inspired) */
-.chroma .k, .chroma .kd, .chroma .kn, .chroma .kp, .chroma .kr, .chroma .kv { color: #d73a49; } /* Keyword */
-.chroma .n, .chroma .nx { color: #24292e; } /* Name */
-.chroma .s, .chroma .s2, .chroma .sa, .chroma .sb, .chroma .sc, .chroma .dl, .chroma .sd, .chroma .se, .chroma .sh, .chroma .si, .chroma .sx, .chroma .sr, .chroma .s1, .chroma .ss { color: #032f62; } /* String */
-.chroma .m, .chroma .mb, .chroma .mf, .chroma .mh, .chroma .mi, .chroma .il, .chroma .mo { color: #005cc5; } /* Number */
-.chroma .c, .chroma .ch, .chroma .cm, .chroma .cp, .chroma .cpf, .chroma .c1, .chroma .cs { color: #6a737d; font-style: italic; } /* Comment */
-.chroma .o, .chroma .ow { color: #d73a49; } /* Operator */
-.chroma .p, .chroma .pi { color: #24292e; } /* Punctuation */
-.chroma .nf, .chroma .fm { color: #6f42c1; } /* Function */
-.chroma .nc { color: #e36209; } /* Class */
-.chroma .nd { color: #e36209; } /* Decorator */
-.chroma .na { color: #005cc5; } /* Attribute */
-.chroma .nt { color: #22863a; } /* Tag */
+/* ── Syntax highlighting ──────────────────────────────────────── */
+.chroma .k, .chroma .kd, .chroma .kn, .chroma .kp, .chroma .kr, .chroma .kv
+  { color: var(--syn-keyword); text-shadow: var(--syn-keyword-glow); }
+.chroma .n, .chroma .nx
+  { color: var(--syn-name); }
+.chroma .s, .chroma .s2, .chroma .sa, .chroma .sb, .chroma .sc, .chroma .dl,
+.chroma .sd, .chroma .se, .chroma .sh, .chroma .si, .chroma .sx, .chroma .sr,
+.chroma .s1, .chroma .ss
+  { color: var(--syn-string); text-shadow: var(--syn-string-glow); }
+.chroma .m, .chroma .mb, .chroma .mf, .chroma .mh, .chroma .mi, .chroma .il, .chroma .mo
+  { color: var(--syn-number); text-shadow: var(--syn-number-glow); }
+.chroma .c, .chroma .ch, .chroma .cm, .chroma .cp, .chroma .cpf, .chroma .c1, .chroma .cs
+  { color: var(--syn-comment); font-style: italic; }
+.chroma .o, .chroma .ow
+  { color: var(--syn-keyword); }
+.chroma .p, .chroma .pi
+  { color: var(--syn-punct); }
+.chroma .nf, .chroma .fm
+  { color: var(--syn-func); text-shadow: var(--syn-func-glow); }
+.chroma .nc
+  { color: var(--syn-class); text-shadow: var(--syn-class-glow); }
+.chroma .nd
+  { color: var(--syn-class); }
+.chroma .na
+  { color: var(--syn-attr); }
+.chroma .nt
+  { color: var(--syn-tag); text-shadow: var(--syn-tag-glow); }
 
-/* Specifics from original */
-div.recipes ul {
-  list-style-type: none;
-  padding: 0;
-  margin-bottom: 20px;
-}
+/* ── Recipes ──────────────────────────────────────────────────── */
+div.recipes ul { list-style-type: none; padding: 0; margin-bottom: 20px; }
 div.recipes ul li {
   border-bottom: 1px dotted var(--border);
   padding: 0.5rem 0;
   display: flex;
   justify-content: space-between;
 }
-div.recipes ul li span.percent {
-  color: var(--text-muted);
-}
+div.recipes ul li span.percent { color: var(--text-muted); }
