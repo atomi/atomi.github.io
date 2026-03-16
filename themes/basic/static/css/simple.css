@@ -117,7 +117,7 @@ h3 { font-size: 1.25rem; }
 /* ── Layout ───────────────────────────────────────────────────── */
 div.postlist, div.post { flex: 1; }
 div.post, div.footer { margin-top: 1.5rem; }
-div.postlist { margin-top: 0; }
+div.postlist { margin-top: 0; padding-top: 0; }
 div.post { margin-top: 2rem; }
 
 div.footer {
@@ -153,9 +153,6 @@ div.footer {
 
 /* ── Site header ──────────────────────────────────────────────── */
 header.site-header {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
   margin-bottom: 1rem;
 }
 
@@ -193,7 +190,7 @@ div.crumbs a:hover {
 
 /* ── Menu ─────────────────────────────────────────────────────── */
 nav.menu {
-  align-self: flex-end;
+  margin-left: auto;
 }
 nav.menu ul {
   display: flex;

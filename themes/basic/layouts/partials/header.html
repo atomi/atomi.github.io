@@ -34,14 +34,14 @@
         / <a href="/{{ delimit $built "/" }}/">{{ . }}</a>
       {{- end }}
     {{- end }}
-  </div>
 
-  <nav class="menu">
-    <ul>
-      {{- range where .Site.RegularPages "Section" "fixed" }}
-      <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
-      {{- end }}
-    </ul>
-  </nav>
+    <nav class="menu">
+      <ul>
+        {{- range where .Site.RegularPages "Section" "fixed" }}
+        <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+        {{- end }}
+      </ul>
+    </nav>
+  </div>
 </header>
 
