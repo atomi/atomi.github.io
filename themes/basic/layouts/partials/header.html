@@ -11,11 +11,37 @@
     {{- end }}
     <link rel="canonical" href="{{- .Permalink }}">
     <link rel="stylesheet" href="/css/simple.css">
+    <script>
+        (function() {
+            const theme = document.cookie.match(/(^|;)\s*theme\s*=\s*([^;]+)/)?.pop() || 'synthwave';
+            if (theme === 'light') {
+                document.documentElement.classList.add('theme-light');
+            }
+        })();
+    </script>
 </head>
 
 <body>
 <input type="checkbox" id="theme-toggle">
 <label for="theme-toggle" class="theme-label"></label>
+<script>
+    const toggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+
+    // Sync toggle with current theme class
+    toggle.checked = html.classList.contains('theme-light');
+
+    toggle.addEventListener('change', () => {
+        const isLight = toggle.checked;
+        if (isLight) {
+            html.classList.add('theme-light');
+            document.cookie = "theme=light; path=/; max-age=31536000; SameSite=Lax";
+        } else {
+            html.classList.remove('theme-light');
+            document.cookie = "theme=synthwave; path=/; max-age=31536000; SameSite=Lax";
+        }
+    });
+</script>
 <div class="wrapper">
 {{- $url := replace .RelPermalink "/" "" 1 }}
 

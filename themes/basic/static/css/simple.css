@@ -40,7 +40,7 @@
 }
 
 /* ── Light (previous) ─────────────────────────────────────────── */
-:root:has(#theme-toggle:checked) {
+:root.theme-light {
   --bg-color:   #ffffff;
   --bg-raised:  #f6f8fa;
   --text-main:  #333333;
@@ -145,7 +145,7 @@ div.footer {
   transition: color 0.15s, text-shadow 0.15s;
 }
 .theme-label::before { content: "◑ light"; }
-:root:has(#theme-toggle:checked) .theme-label::before { content: "◑ dark"; }
+:root.theme-light .theme-label::before { content: "◑ dark"; }
 .theme-label:hover {
   color: var(--accent);
   text-shadow: var(--glow-pink);
