@@ -116,7 +116,8 @@ h3 { font-size: 1.25rem; }
 
 /* ── Layout ───────────────────────────────────────────────────── */
 div.postlist, div.post { flex: 1; }
-div.postlist, div.post, div.footer { margin-top: 1.5rem; }
+div.post, div.footer { margin-top: 1.5rem; }
+div.postlist { margin-top: 0; }
 div.post { margin-top: 2rem; }
 
 div.footer {
@@ -155,7 +156,7 @@ header.site-header {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 div.crumbs {
