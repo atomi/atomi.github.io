@@ -22,7 +22,7 @@
 <header class="site-header">
   <div class="crumbs">
     <a href="/"><img src="//gravatar.com/avatar/68fbaa9a6bdad986f08cffd30738795e?s=30" alt="atomi" /></a>
-    <a href="/">atomi</a>
+    <a href="/">atomi</a> : I'm still alive edition.
     {{- $parts := split (strings.TrimPrefix "/" .RelPermalink) "/" }}
     {{- $built := slice }}
     {{- range $parts }}
@@ -37,11 +37,6 @@
     <ul>
       {{- range where .Site.RegularPages "Section" "fixed" }}
       <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
-      {{- end }}
-      {{- range $section, $pages := .Site.Sections }}
-        {{- if ne $section "fixed" }}
-      <li><a href="/{{ $section }}/">{{ title $section }}</a></li>
-        {{- end }}
       {{- end }}
     </ul>
   </nav>

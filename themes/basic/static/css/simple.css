@@ -152,10 +152,10 @@ div.footer {
 
 /* ── Site header ──────────────────────────────────────────────── */
 header.site-header {
-  border-bottom: 1px solid var(--border);
-  box-shadow: var(--glow-header-border);
-  padding-bottom: 0.75rem;
-  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
 }
 
 div.crumbs {
@@ -164,7 +164,6 @@ div.crumbs {
   gap: 0.35rem;
   font-size: 0.85em;
   color: var(--text-muted);
-  margin-bottom: 0.6rem;
 }
 div.crumbs img {
   display: block;
