@@ -8,7 +8,7 @@ title: "Bread Recipes"
 
 These recipes use [Baker's Percentages].
 
-{{% recipes %}}
+{{< recipes >}}
 
 [Baker's Percentages]: https://en.wikipedia.org/wiki/Baker_percentage
 [Peter Reinhart]: https://en.wikipedia.org/wiki/Peter_Reinhart

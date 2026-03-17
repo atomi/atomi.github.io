@@ -5,18 +5,10 @@
   {{- range .ingredients -}}
     <li>
     {{- $iid := .id -}}
-    {{- if eq .recipe true -}}
-      {{- range $.Site.Data.panadero.recipes -}}
-        {{- if eq $iid .id -}}
-          {{- .name -}}
-        {{- end -}}
-      {{- end -}}
+    {{- if .recipe -}}
+      {{- range where $.Site.Data.panadero.recipes "id" .id -}}{{ .name }}{{ end -}}
     {{- else -}}
-      {{- range $.Site.Data.panadero.ingredients -}}
-        {{- if eq $iid .id -}}
-          {{- .name -}}
-        {{- end -}}
-      {{- end -}}
+      {{- range where $.Site.Data.panadero.ingredients "id" .id -}}{{ .name }}{{ end -}}
     {{- end -}}
     <span class="percent">
       {{- mul .percent 100 | printf "%2.2f" -}}%
