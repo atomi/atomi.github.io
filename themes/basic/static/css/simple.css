@@ -93,9 +93,7 @@ h3 { font-size: 1.25rem; }
 
 /* ── Layout ───────────────────────────────────────────────────── */
 div.postlist, div.post { flex: 1; }
-div.post, div.footer { margin-top: 1.5rem; }
 div.postlist { margin-top: 0; padding-top: 0; }
-div.post { margin-top: 2rem; }
 
 div.footer {
   border-top: 1px solid var(--border);
@@ -128,7 +126,7 @@ div.footer {
 
 /* ── Site header ──────────────────────────────────────────────── */
 header.site-header {
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
 }
 
 div.crumbs {
@@ -240,8 +238,7 @@ div.post .date {
   display: block;
 }
 
-div.post .prevnext {
-  margin-top: 3rem;
+div.post .prevnext {  
   display: flex;
   justify-content: space-between;
   font-size: 0.9em;
