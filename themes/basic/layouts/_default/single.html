@@ -2,25 +2,8 @@
 <div class="post">
 {{ if ne .Section "fixed" }}
 <div class="prevnext">
-  {{ with .Next }}
-    {{ if ne .Section "fixed" }}
-      <a href="{{ .RelPermalink }}" title="{{.Title}}"> Prev</a>
-    {{ else }}
-      Prev
-    {{ end }}
-  {{ else }}
-    Prev
-  {{ end }}
-  |
-  {{ with .Prev }}
-    {{ if ne .Section "fixed" }}
-      <a href="{{ .RelPermalink }}" title="{{.Title}}">Next</a>
-    {{ else }}
-      Next
-    {{ end }}
-  {{ else }}
-  Next
-  {{ end }}
+  {{ with .Next }}{{ if ne .Section "fixed" }}<a href="{{ .RelPermalink }}">« newer</a>{{ else }}<span></span>{{ end }}{{ else }}<span></span>{{ end }}
+  {{ with .Prev }}{{ if ne .Section "fixed" }}<a href="{{ .RelPermalink }}">older »</a>{{ else }}<span></span>{{ end }}{{ else }}<span></span>{{ end }}
 </div>
  <div class="date">
    {{ .Date.Format "Mon. January 2, 2006" }}
