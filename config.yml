@@ -1,6 +1,6 @@
 baseurl: https://atomi.github.io/
 theme: basic
-DisableRSS: true
+DisableRSS: false
 DisableSitemap: true
 DisableHugoGeneratorInject: true
 disable404: true
@@ -11,3 +11,7 @@ permalinks:
 markup:
   highlight:
     noClasses: false
+
+outputFormats:
+  RSS:
+    baseName: "rss"

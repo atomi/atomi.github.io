@@ -1,0 +1,31 @@
+{{- $page := . -}}
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ .Site.Title }} - {{ .Title }}</title>
+    <link>{{ .Permalink }}</link>
+    <description>{{ with .Description }}{{ . | html }}{{ else }}{{ .Summary | html }}{{ end }}</description>
+    <generator>Hugo {{ .Hugo.Version }}</generator>
+    <language>{{ .Site.LanguageCode }}</language>
+    <lastBuildDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</lastBuildDate>
+    <atom:link href="{{ .Permalink }}" rel="self" type="application/rss+xml" />
+
+    {{ range first 10 .Pages.ByDate.Reverse }}
+    <item>
+      <title>{{ .Title }}</title>
+      <link>{{ .Permalink }}</link>
+      <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</pubDate>
+      <guid>{{ .Permalink }}</guid>
+      <description>{{ .Summary | html }}</description>
+      {{ with .Site.Params.author }}
+      <author>{{ . }}</author>
+      {{ end }}
+      {{ range .Params.categories }}
+      <category>{{ . }}</category>
+      {{ end }}
+      {{ range .Params.tags }}
+      <category>{{ . }}</category>
+      {{ end }}
+    </item>
+    {{ end }}
+  </channel>
+</rss>

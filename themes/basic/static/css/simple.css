@@ -124,6 +124,21 @@ div.footer {
   color: var(--accent);
 }
 
+.rss-link {
+  position: fixed;
+  top: 0.85rem;
+  right: 3.5rem;
+  cursor: pointer;
+  font-size: 0.72em;
+  letter-spacing: 0.07em;
+  color: var(--text-muted);
+  user-select: none;
+  z-index: 100;
+}
+.rss-link:hover {
+  color: var(--accent);
+}
+
 /* ── Site header ──────────────────────────────────────────────── */
 header.site-header {
   margin-bottom: 3rem;
