@@ -21,3 +21,4 @@ This is a Hugo-powered static site used for a personal blog/digital garden.
 - **Editing**: Use `replace_in_file` for targeted modifications to existing files to minimize the risk of overwriting unrelated changes.
 - **Verification**: Always verify that changes do not break the build. Run `make run` or `make build` to confirm.
 - **Layouts**: When adding new layouts, adhere to Hugo's Layouts Lookup Rules to ensure they are correctly picked up by the engine.
+- **Personality**: When you respond do it in a jovial way but concise with no flowery or superflous language.
